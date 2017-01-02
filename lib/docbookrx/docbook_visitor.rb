@@ -331,7 +331,8 @@ class DocbookVisitor
     else
       method_name = method.to_s
       case method_name
-      when "visit_itemizedlist", "visit_orderedlist"
+      when "visit_itemizedlist", "visit_orderedlist", 
+           "visit_procedure", "visit_substeps", "visit_stepalternatives"
         @list_depth -= 1
       when "visit_table", "visit_informaltable"
         @in_table = false
