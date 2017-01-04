@@ -716,7 +716,7 @@ class DocbookVisitor
           end
 
           local_continuation = false
-          unless i == 0 || first_line || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist')
+          unless i == 0 || first_line || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist' || child.name == 'procedure')
             append_line '+'
             @continuation = true
             local_continuation = true
@@ -756,7 +756,7 @@ class DocbookVisitor
               if first_line && ! local_continuation
                 append_text ' {empty}' # necessary to fool asciidoctorj into thinking that this is a listitem
               end
-              unless local_continuation || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist')
+              unless local_continuation || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist' || child.name == 'procedure')
                 append_line '+'
               end
               @continuation = false
